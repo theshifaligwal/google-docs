@@ -2,7 +2,7 @@ import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
 export default function Header() {
   return (
-    <div className="sticky z-50 top-0 flex items-center px-4 py-2 shadow-md bg-white">
+    <header className="sticky z-50 top-0 flex items-center px-4 py-2 shadow-md bg-white">
       <Button
         color="gray"
         buttonType="outline"
@@ -28,10 +28,10 @@ export default function Header() {
         ripple="dark"
         className="ml-5 md:ml-20 h-20 w-20 border-0"
       >
-        <Icon name="apps" size="4xl" color="fray" />
+        <Icon name="apps" size="4xl" color="gray" />
       </Button>
 
       <img loading="lazy" className="cursor-pointer h-12 w-12 rounded-full ml-2" src="https://lh3.googleusercontent.com/ogw/ADea4I6g1VuppzZsS5EZC7wCCWeX1v_V3qXiZAPz0Ng=s32-c-mo" alt=""/>
-    </div>
+    </header>
   );
 }
