@@ -1,4 +1,4 @@
-import firebase from "firebase";
+import firebase from "./firebase";
 const firebaseConfig = {
   apiKey: "AIzaSyB7b7m-wlPBgI3Hory10wMOMR-_WeBJO3M",
   authDomain: "docs-40b80.firebaseapp.com",
@@ -15,3 +15,5 @@ const app = !firebase.apps.length
 const db = app.firestore();
 
 export { db };
+
+  
