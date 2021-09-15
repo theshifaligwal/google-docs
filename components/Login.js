@@ -18,7 +18,7 @@ export default function Login() {
         ripple="light"
         onClick={signIn}
       >
-        Button
+        Login
       </Button>
     </div>
   );
