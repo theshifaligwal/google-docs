@@ -9,6 +9,8 @@ import { useState } from "react";
 import Modal from "@material-tailwind/react/Modal";
 import ModalBody from "@material-tailwind/react/ModalBody";
 import ModalFooter from "@material-tailwind/react/ModalFooter";
+import { db } from "../firebase";
+import firebase from "firebase";
 
 export default function Home() {
   const [session] = useSession();
@@ -17,7 +19,17 @@ export default function Home() {
 
   if (!session) return <Login />;
 
-  const createDocument = () => {}
+  const createDocument = () => {
+    if (!input) return;
+
+    db.collection("userDocs").doc(session.user.email).collection("docs").add({
+      fileName: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    setInput("");
+    setShowModal(false);
+  };
 
   const modal = (
     <Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
@@ -76,7 +88,10 @@ export default function Home() {
           </div>
 
           <div>
-            <div className="relative h-52 w-40 border cursor-pointer hover:border-blue-700">
+            <div
+              onClick={() => setShowModal(true)}
+              className="relative h-52 w-40 border cursor-pointer hover:border-blue-700"
+            >
               <Image src="https://links.papareact.com/pju" layout="fill" />
             </div>
 
