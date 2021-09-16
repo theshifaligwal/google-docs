@@ -1,6 +1,9 @@
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
+import { signOut, useSession } from "next-auth/client";
+
 export default function Header() {
+  const [session] = useSession();
   return (
     <header className="sticky z-50 top-0 flex items-center px-4 py-2 shadow-md bg-white">
       <Button
@@ -18,7 +21,11 @@ export default function Header() {
 
       <div className="flex flex-grow items-center md:mx-20 mx-4 px-5 py-2 bg-gray-100 text-gray-600 rounded-lg focus-within:text-gray-800 focus-within:shadow-md">
         <Icon name="search" size="3xl" color="gray" />
-        <input type="text" placeholder="Search" className="flex-grow px-5 text-base bg-transparent outline-none" />
+        <input
+          type="text"
+          placeholder="Search"
+          className="flex-grow px-5 text-base bg-transparent outline-none"
+        />
       </div>
       <Button
         color="gray"
@@ -31,7 +38,13 @@ export default function Header() {
         <Icon name="apps" size="4xl" color="gray" />
       </Button>
 
-      <img loading="lazy" className="cursor-pointer h-12 w-12 rounded-full ml-2" src="https://lh3.googleusercontent.com/ogw/ADea4I6g1VuppzZsS5EZC7wCCWeX1v_V3qXiZAPz0Ng=s32-c-mo" alt=""/>
+      <img
+      onClick={signOut}
+        loading="lazy"
+        className="cursor-pointer h-12 w-12 rounded-full ml-2"
+        src={session?.user?.image}
+        alt=""
+      />
     </header>
   );
 }
