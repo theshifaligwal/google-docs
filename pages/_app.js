@@ -1,8 +1,13 @@
+// Next tailwind
 import "tailwindcss/tailwind.css";
 import "@material-tailwind/react/tailwind.css";
 import Head from "next/head";
-import {Provider} from "next-auth/client"
-import "../style.css"
+
+// Next authentication
+import { Provider } from "next-auth/client";
+
+// CSS
+import "../style.css";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -15,7 +20,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <Provider session={pageProps.session}>
-      <Component {...pageProps} />
+        <Component {...pageProps} />
       </Provider>
     </>
   );

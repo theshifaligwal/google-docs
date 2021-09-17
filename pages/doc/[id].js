@@ -1,10 +1,17 @@
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
 import { getSession, signOut, useSession } from "next-auth/client";
+// Next Router
 import { Router, useRouter } from "next/dist/client/router";
+
+// React firebase hooks
 import { useDocumentOnce } from "react-firebase-hooks/firestore";
+
+// Components
 import Login from "../../components/Login";
 import TextEditor from "../../components/TextEditor";
+
+// firebase
 import { db } from "../../firebase";
 
 export default function Doc() {

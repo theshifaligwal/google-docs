@@ -1,5 +1,8 @@
+// Next tailwind
 import Button from "@material-tailwind/react/Button";
 import Image from "next/image";
+
+// Next Authentication
 import { signIn } from "next-auth/client";
 
 export default function Login() {

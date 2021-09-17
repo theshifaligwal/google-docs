@@ -1,12 +1,22 @@
 import dynamic from "next/dynamic";
+
+// React
 import { useState } from "react";
 import { useEffect } from "react";
+
+// React draft wysiwyg
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState } from "draft-js";
+import { convertFromRaw, convertToRaw } from "draft-js";
+
+// firebase
 import { db } from "../firebase";
+
+// Next Authentication
 import { session, useSession } from "next-auth/client";
 import { useRouter } from "next/dist/client/router";
-import { convertFromRaw, convertToRaw } from "draft-js";
+
+// React firebase hooks
 import { useDocument, useDocumentOnce } from "react-firebase-hooks/firestore";
 
 const Editor = dynamic(
